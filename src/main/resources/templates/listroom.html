@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Room List</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Room List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>price</th>
+            <th>address</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="room: ${listRooms}">
+            <td th:text="${room.id}"></td>
+            <td th:text="${room.title}"></td>
+            <td th:text="${room.price}"></td>
+            <td th:text="${room.address}"></td>
+            <td>
+                <a th:href="@{'/admin/edit/' + ${room.id}}">edit</a>
+
+            </td>
+            <td>
+                <a th:href="@{'/admin/delete/' + ${room.id}}">delete</a>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
